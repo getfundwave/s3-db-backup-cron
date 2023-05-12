@@ -17,10 +17,7 @@ docker run -idt backups --env MYSQL_USERNAME=<> --env MYSQL_PASSWORD=<> --env SE
 
 4. Verify backups manually
 
-`docker exec -it <backup_container> bash`
-
-Inside the container: `sh script.sh`
-
+`docker exec -it <backup_container> bash script.sh`
 
 
 How to run (docker-compose):
@@ -38,15 +35,15 @@ Add the below section to your docker compose:
       - <db>
     environment:
       - BUCKET_NAME=<abc.bucket.com>
-      # Only when backing up MYSQL
+      # Only when backing up MYSQL / MariaDB
       - MYSQL_USERNAME=
       - MYSQL_PASSWORD=
       - SERVER=
       - DB_NAME=
-      # Only when backing up MariaDB
+      # Only when backing up MongoDB
       - MONGODB_URI=
       - MONGO_DATABASES=
-      # Specify backup time, defaults to 23
+      # Specify backup hour of day, defaults to 23
       - HOUR_OF_DAY=      
       # Specify AWS credentials or skip if using AWS IAM roles 
       - AWS_ACCESS_KEY_ID=
@@ -54,4 +51,4 @@ Add the below section to your docker compose:
     restart: always
 ```
 
-Using [Dockerhub](https://hub.docker.com/r/fundwave/s3-mysql-backup-cron)? Replace `build:` with `image: fundwave/s3-mysql-backup-cron:latest`
+Using [Dockerhub](https://hub.docker.com/r/fundwave/s3-db-backup-cron)? Replace `build:` with `image: fundwave/s3-db-backup-cron:latest`
