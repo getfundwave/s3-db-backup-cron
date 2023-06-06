@@ -8,7 +8,7 @@ BACKUPS_DISABLED=${BACKUPS_DISABLED:-"false"}
 
 if [ $BACKUPS_DISABLED == 'TRUE' ] || [ $BACKUPS_DISABLED == 'true' ]
 then
-  echo "No backups since BACKUPS_DISABLED is not TRUE or true. It is $BACKUPS_DISABLED ."
+  echo "No backups since BACKUPS_DISABLED is set to $BACKUPS_DISABLED ."
   exit 0
 fi
 
