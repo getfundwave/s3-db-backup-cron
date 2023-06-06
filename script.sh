@@ -4,11 +4,11 @@ SERVER=${SERVER:-"db"}
 FILE_NAME=${FILE_NAME:-"backup"}
 CURRENT_DIR=$(dirname $0)
 
-ENV=${ENV:-"PROD"}
+BACKUPS_DISABLED=${BACKUPS_DISABLED:-"false"}
 
-if [ $ENV == 'TRIAL' ] || [ $ENV == 'trial' ]
+if [ $BACKUPS_DISABLED == 'TRUE' ] || [ $BACKUPS_DISABLED == 'true' ]
 then
-  echo "No backups since environment is $ENV"
+  echo "No backups since BACKUPS_DISABLED is not TRUE or true. It is $BACKUPS_DISABLED ."
   exit 0
 fi
 
