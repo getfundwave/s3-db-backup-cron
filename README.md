@@ -54,6 +54,6 @@ Add the below section to your docker compose:
 
 ### NOTE
 
-The BACKUPS_DISABLED when set to false, enables backup for PROD instances, this var is set to false for other instances eg, TRIAL
+The BACKUPS_DISABLED env var when set to false, enables backup for PROD instances, this var is set to true for other instances eg, TRIAL
 
 Using [Dockerhub](https://hub.docker.com/r/fundwave/s3-db-backup-cron)? Replace `build:` with `image: fundwave/s3-db-backup-cron:latest`
